@@ -51,18 +51,17 @@ function restGet() {
 // POST new data to server
 function restPost(evangelist) {
   $.ajax({
-    url: 'http://localhost',
+    url: apiUri + '/evangelist',
     type: 'POST',
     datatype: 'json',
     data: evangelist,
 
     success: function(data) {
-      var len = data.length;
-      for(var index = 0; index < len; index++) {
-        addEvanglist(data);
-      }
+      $evangelists.append('<li>Name: ' + evangelist.name + ',&nbsp;&nbsp;' + ' Location: ' + evangelist.location + '</li>');
     },
 
-    error: function() { alert('Failed!'); },
+    error: function(e) {
+      alert('Failed!');
+    },
   });
 }

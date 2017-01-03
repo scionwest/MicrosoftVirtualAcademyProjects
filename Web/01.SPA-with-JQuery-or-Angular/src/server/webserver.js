@@ -31,6 +31,10 @@ router.get('/evangelist', function(request, response) {
   response.send(event);
 });
 
+router.post('/evangelist', function(request, response) {
+  //fs.writeFile(__dirname + '/data/evangelists.json', )
+});
+
 router.get('/', function(request, response) {
   response.render('index', {});
 });
