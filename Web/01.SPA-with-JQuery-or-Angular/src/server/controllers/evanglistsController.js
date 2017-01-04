@@ -8,3 +8,7 @@ module.exports.get = function(request, response) {
   response.setHeader('Content-Type', 'application/json');
   response.send(event);
 };
+
+module.exports.save = function(request, response) {
+
+};

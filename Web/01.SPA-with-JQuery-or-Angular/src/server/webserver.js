@@ -11,12 +11,14 @@ if (process.argv.length == 2) {
   return;
 };
 
+// configure the server
 var staticFilePath = process.argv[2];
 var application_root = path.resolve(__dirname, '../');
 var port = process.env.PORT || 8000;
 var app = express();
 var router = express.Router();
 
+// Wire up middleware
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -24,21 +26,17 @@ app.use(bodyParser.json());
 app.use(express.static(application_root + '/' + staticFilePath));
 app.use('/api', router);
 
-router.use(function(request, response, nextMiddleware) {
-  nextMiddleware();
-});
-
-router.get('/evangelist', evanglistsController.get);
-
-router.post('/evangelist', function(request, response) {
-  //fs.writeFile(__dirname + '/data/evangelists.json', )
-});
-
+// landing page - only page that won't have a controller.
 router.get('/', function(request, response) {
   response.render('index', {});
 });
 
+// evangelist API
+router.get('/evangelist', evanglistsController.get);
+router.post('/evangelist', evanglistsController.save);
+
 app.listen(port);
+
 console.log('Server hosted from ' + __dirname);
 console.log('Server serving static files from ' + application_root + '/' + staticFilePath);
 console.log('Server listening on port ' + port);
