@@ -38,7 +38,7 @@ function restGet() {
 
     success: function(data) {
       var len = data.length;
-      for(var index = 0; index < len; index++) {
+      for (var index = 0; index < len; index++) {
         $evangelists.append('<li>Name: ' + data[index].name + ',&nbsp;&nbsp;' + ' Location: ' + data[index].location + '</li>');
       }
     },

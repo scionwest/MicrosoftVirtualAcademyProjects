@@ -1,10 +1,7 @@
-[
-  {
-    "name": "bob",
-    "location": "phoenix"
-  },
-  {
-    "name": "Jane",
-    "location": "Colorado"
-  }
-]
+[{
+	"name": "bob",
+	"location": "phoenix"
+}, {
+	"name": "Jane",
+	"location": "Colorado"
+}]
